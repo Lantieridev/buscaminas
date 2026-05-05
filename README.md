@@ -1,36 +1,80 @@
-# Minesweeper | Tactical Logic Engine
+# Minesweeper - Java Console Game 💣🚩
 
-![Minesweeper Banner](buscaminas_banner.png)
+> [!NOTE]
+> **Academic Exercise:** This project was developed as an exam simulation for the Backend Programming course at UTN FRC (2026).
 
-## Overview
-A high-performance Java implementation of the classic Minesweeper logic game. Re-engineered for the modern terminal, this version features advanced grid processing, dynamic difficulty scaling, and a cinematic CLI interface.
+Welcome to **Minesweeper**! The classic logic game reinvented for the terminal with an aesthetic interface and support for multiple difficulties.
 
-## 🚀 Key Features
-- **Sophisticated Game Engine**: Modular grid logic handling recursive cell revelation and mine placement algorithms.
-- **Executive Visuals**: Rich ANSI color palettes and professional ASCII branding provide a premium user experience.
-- **Multi-Level Difficulty**: Customizable grid dimensions and mine density for scalable challenge levels.
-- **Cinematic Feedback**: High-impact visual sequences for victory and loss conditions.
+## 🚀 About the Project
+This project implements the Minesweeper game engine in Java, focusing on modularity and the console user experience.
 
-## 🎨 Interface Showcase
-The system utilizes a refined grid system with clear status indicators:
-- `[?]` (Cian): Hidden Cell.
-- `[F]` (Red): Flagged Mine.
-- `[0-8]` (Dynamic): Proximity count.
-- `[*]` (Yellow): Detonated Mine.
+### 🛠️ Technologies Used
+*   **Language:** Java 21.
+*   **Build Tool:** Maven.
+*   **Interface:** Console with ANSI colors and ASCII banners.
 
-## 🛠️ Technical Stack
-- **Language**: Java 21
-- **Build System**: Maven
-- **Paradigm**: Object-Oriented Design (OOD)
-- **Styling**: ANSI Escape Sequences & High-Density ASCII Art
+---
 
-## 📖 How to Run
-Ensure you have Maven and a Java 21+ JDK installed, then execute:
-```powershell
-mvn clean compile
-mvn exec:java "-Dexec.mainClass=com.utn.buscaminas.Main"
+## 📸 Game Interface (CLI Showcase)
+
+### 1. Startup and Banner
+```text
+██████╗ ██╗   ██╗███████╗ ██████╗ █████╗ ███╗   ███╗██╗███╗   ██╗ █████╗ ███████╗
+██╔══██╗██║   ██║██╔════╝██╔════╝██╔══██╗████╗ ████║██║████╗  ██║██╔══██╗██╔════╝
+██████╔╝██║   ██║███████╗██║     ███████║██╔████╔██║██║██╔██╗ ██║███████║███████╗
+██╔══██╗██║   ██║╚════██║██║     ██╔══██║██║╚██╔╝██║██║██║╚██╗██║██╔══██║╚════██║
+██████╔╝╚██████╔╝███████║╚██████╗██║  ██║██║ ╚═╝ ██║██║██║ ╚████║██║  ██║███████║
+╚═════╝  ╚═════╝ ╚══════╝ ╚═════╝╚═╝  ╚═╝╚═╝     ╚═╝╚═╝╚═╝  ╚═══╝╚═╝  ╚═╝╚══════╝
+                       M I N E S W E E P E R                                  
+================================================================================
 ```
 
-## 👔 Contact
-Developed by **Martin Lantieri** | *Lantieridev*
-[LinkedIn](https://www.linkedin.com/in/martin-lantieri/) | [GitHub](https://github.com/Lantieridev)
+### 2. Game Board
+```text
+    0  1  2  3  4  5  6  7  8  9 
+  0 [?] [?] [?] [?] [?] [?] [?] [?] [?] [?] 
+  1 [?] [1] [1] [1] [?] [?] [?] [?] [?] [?] 
+  2 [?] [1] [0] [1] [?] [?] [?] [?] [?] [?] 
+  3 [?] [1] [1] [1] [?] [?] [?] [?] [?] [?] 
+```
+
+### 3. Defeat Screen (Explosion)
+```text
+              _ ._  _ , _ ._             
+            (_ ' ( `  )_  .__)           
+          ( (  (    )   `)  ) _)         
+         (__ (_   (_ . _) _) ,__)        
+             `~~`\ ' . /`~~`             
+                  |   |                  
+                  |   |                  
+                  '-' '-'                
+
+        ¡¡¡ B O O O O O O M !!!          
+       You hit a mine. Game over.
+==========================================
+```
+
+### 4. Victory Screen
+```text
+******************************************
+        FIELD SUCCESSFULLY CLEARED!       
+******************************************
+    🏆  You are an expert sapper!     
+******************************************
+```
+
+---
+
+## ⚙️ How to Run
+1. **Compile:**
+   ```powershell
+   mvn clean compile
+   ```
+2. **Play:**
+   ```powershell
+   mvn exec:java "-Dexec.mainClass=com.utn.buscaminas.Main"
+   ```
+
+---
+
+*Developed by Martin Lantieri - UTN 2026*
