@@ -37,12 +37,28 @@ public class Cell {
 
     @Override
     public String toString() {
+        String RESET = "\u001B[0m";
+        String RED = "\u001B[31m";
+        String GREEN = "\u001B[32m";
+        String YELLOW = "\u001B[33m";
+        String BLUE = "\u001B[34m";
+        String CYAN = "\u001B[36m";
+
         if (!isRevealed) {
-            return "[?]";
+            return CYAN + "[?]" + RESET;
         }
         if (isMined) {
-            return "[*]";
+            return RED + "[*]" + RESET;
         }
-        return "[" + adjacentMines + "]";
+        
+        String color = switch (adjacentMines) {
+            case 1 -> BLUE;
+            case 2 -> GREEN;
+            case 3 -> RED;
+            case 4 -> YELLOW;
+            default -> RESET;
+        };
+        
+        return color + "[" + adjacentMines + "]" + RESET;
     }
 }

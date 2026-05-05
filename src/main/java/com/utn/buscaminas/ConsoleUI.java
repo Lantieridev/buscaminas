@@ -7,6 +7,16 @@ import java.util.Map;
 public class ConsoleUI {
     private final Scanner scanner;
     private final Map<String, Integer> playerWins;
+    
+    // ANSI Colors
+    private static final String RESET = "\u001B[0m";
+    private static final String RED = "\u001B[31m";
+    private static final String GREEN = "\u001B[32m";
+    private static final String YELLOW = "\u001B[33m";
+    private static final String BLUE = "\u001B[34m";
+    private static final String MAGENTA = "\u001B[35m";
+    private static final String CYAN = "\u001B[36m";
+    private static final String WHITE_BOLD = "\033[1;37m";
 
     public ConsoleUI() {
         this.scanner = new Scanner(System.in);
@@ -14,11 +24,10 @@ public class ConsoleUI {
     }
 
     public void start() {
-        System.out.println("========================================");
-        System.out.println("       BIENVENIDO AL BUSCAMINAS        ");
-        System.out.println("========================================");
+        clearScreen();
+        printBanner();
 
-        System.out.print("Ingrese su nombre: ");
+        System.out.print(WHITE_BOLD + "Ingrese su nombre para comenzar: " + RESET);
         String playerName = scanner.nextLine();
 
         boolean keepPlaying = true;
@@ -35,16 +44,16 @@ public class ConsoleUI {
 
     private void playRound(String playerName) {
         System.out.println("\nSeleccione dificultad:");
-        System.out.println("1. Fácil (10x10, 10 minas)");
-        System.out.println("2. Difícil (20x20, 20 minas)");
-        System.out.print("Opción: ");
+        System.out.println("1. Facil (10x10, 10 minas)");
+        System.out.println("2. Dificil (20x20, 20 minas)");
+        System.out.print("Opcion: ");
 
         Difficulty difficulty = Difficulty.EASY;
         try {
             int opt = Integer.parseInt(scanner.nextLine());
             if (opt == 2) difficulty = Difficulty.HARD;
         } catch (NumberFormatException e) {
-            System.out.println("Opción no válida, usando Fácil por defecto.");
+            System.out.println("Opcion no valida, usando Facil por defecto.");
         }
 
         Game game = new Game(playerName, difficulty);
@@ -67,10 +76,10 @@ public class ConsoleUI {
                 int c = Integer.parseInt(parts[1]);
 
                 if (!game.revealCell(r, c)) {
-                    System.out.println("Coordenada inválida o ya revelada.");
+                    System.out.println("Coordenada invalida o ya revelada.");
                 }
             } catch (Exception e) {
-                System.out.println("Entrada inválida. Use el formato: fila columna (ej: 0 0)");
+                System.out.println("Entrada invalida. Use el formato: fila columna (ej: 0 0)");
             }
         }
 
@@ -101,12 +110,28 @@ public class ConsoleUI {
     }
 
     private void showFinalStats() {
-        System.out.println("\n--- Estadísticas de Partidas Ganadas ---");
+        System.out.println("\n--- Estadisticas de Partidas Ganadas ---");
         if (playerWins.isEmpty()) {
             System.out.println("No hay victorias registradas.");
         } else {
             playerWins.forEach((name, wins) -> 
                 System.out.println("Jugador: " + name + " | Victorias: " + wins));
         }
+    }
+
+    private void printBanner() {
+        System.out.println(CYAN + "██████╗ ██╗   ██╗███████╗ ██████╗ █████╗ ███╗   ███╗██╗███╗   ██╗ █████╗ ███████╗" + RESET);
+        System.out.println(CYAN + "██╔══██╗██║   ██║██╔════╝██╔════╝██╔══██╗████╗ ████║██║████╗  ██║██╔══██╗██╔════╝" + RESET);
+        System.out.println(CYAN + "██████╔╝██║   ██║███████╗██║     ███████║██╔████╔██║██║██╔██╗ ██║███████║███████╗" + RESET);
+        System.out.println(CYAN + "██╔══██╗██║   ██║╚════██║██║     ██╔══██║██║╚██╔╝██║██║██║╚██╗██║██╔══██║╚════██║" + RESET);
+        System.out.println(CYAN + "██████╔╝╚██████╔╝███████║╚██████╗██║  ██║██║ ╚═╝ ██║██║██║ ╚████║██║  ██║███████║" + RESET);
+        System.out.println(CYAN + "╚═════╝  ╚═════╝ ╚══════╝ ╚═════╝╚═╝  ╚═╝╚═╝     ╚═╝╚═╝╚═╝  ╚═══╝╚═╝  ╚═╝╚══════╝" + RESET);
+        System.out.println(YELLOW + "                       M I N E S W E E P E R                                  " + RESET);
+        System.out.println("================================================================================");
+    }
+
+    private void clearScreen() {
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
     }
 }
