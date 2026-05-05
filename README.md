@@ -38,6 +38,31 @@ Este proyecto implementa el motor de juego del Buscaminas en Java, enfocado en l
  3 [?] [1] [1] [1] [?] [?] [?] [?] [?] [?] 
 ```
 
+### 3. Pantalla de Derrota (Explosión)
+```text
+              _ ._  _ , _ ._             
+            (_ ' ( `  )_  .__)           
+          ( (  (    )   `)  ) _)         
+         (__ (_   (_ . _) _) ,__)        
+             `~~`\ ' . /`~~`             
+                  |   |                  
+                  |   |                  
+                  '-' '-'                
+
+        ¡¡¡ B O O O O O O M !!!          
+       Has tocado una mina. Fin del juego.
+==========================================
+```
+
+### 4. Pantalla de Victoria
+```text
+******************************************
+        ¡CAMPO DESPEJADO CON ÉXITO!       
+******************************************
+   🏆  ¡Eres un experto artificiero!     
+******************************************
+```
+
 ---
 
 ## ⚙️ Cómo Ejecutar

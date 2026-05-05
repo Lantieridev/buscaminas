@@ -85,10 +85,10 @@ public class ConsoleUI {
 
         displayBoard(game.getBoard());
         if (game.isWon()) {
-            System.out.println("\n¡FELICITACIONES, " + playerName + "! ¡Has ganado!");
+            printVictory();
             playerWins.put(playerName, playerWins.getOrDefault(playerName, 0) + 1);
         } else {
-            System.out.println("\n¡BOOM! Has tocado una mina. Fin del juego.");
+            printGameOver();
         }
     }
 
@@ -128,6 +128,29 @@ public class ConsoleUI {
         System.out.println(CYAN + "╚═════╝  ╚═════╝ ╚══════╝ ╚═════╝╚═╝  ╚═╝╚═╝     ╚═╝╚═╝╚═╝  ╚═══╝╚═╝  ╚═╝╚══════╝" + RESET);
         System.out.println(YELLOW + "                       M I N E S W E E P E R                                  " + RESET);
         System.out.println("================================================================================");
+    }
+
+    public void printGameOver() {
+        clearScreen();
+        System.out.println(RED + "              _ ._  _ , _ ._             " + RESET);
+        System.out.println(RED + "            (_ ' ( `  )_  .__)           " + RESET);
+        System.out.println(RED + "          ( (  (    )   `)  ) _)         " + RESET);
+        System.out.println(RED + "         (__ (_   (_ . _) _) ,__)        " + RESET);
+        System.out.println(RED + "             `~~`\\ ' . /`~~`             " + RESET);
+        System.out.println(RED + "                  |   |                  " + RESET);
+        System.out.println(RED + "                  |   |                  " + RESET);
+        System.out.println(RED + "                  '-' '-'                " + RESET);
+        System.out.println(RED + "\n        ¡¡¡ B O O O O O O M !!!          " + RESET);
+        System.out.println(WHITE_BOLD + "       Has tocado una mina. Fin del juego." + RESET);
+        System.out.println(RED + "==========================================" + RESET);
+    }
+
+    public void printVictory() {
+        System.out.println(YELLOW + "******************************************" + RESET);
+        System.out.println(YELLOW + "        ¡CAMPO DESPEJADO CON ÉXITO!       " + RESET);
+        System.out.println(YELLOW + "******************************************" + RESET);
+        System.out.println(CYAN + "   🏆  ¡Eres un experto artificiero!     " + RESET);
+        System.out.println(YELLOW + "******************************************" + RESET);
     }
 
     private void clearScreen() {
