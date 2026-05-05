@@ -1,80 +1,36 @@
-# Buscaminas - Java Console Game 💣🚩
+# Minesweeper | Tactical Logic Engine
 
-> [!NOTE]
-> **Ejercicio Académico:** Este proyecto fue desarrollado como simulacro de examen para la asignatura de Programación Backend en la UTN FRC (2026).
+![Minesweeper Banner](buscaminas_banner.png)
 
-¡Bienvenido al **Buscaminas**! El clásico juego de lógica reinventado para la terminal con una interfaz estética y soporte para múltiples dificultades.
+## Overview
+A high-performance Java implementation of the classic Minesweeper logic game. Re-engineered for the modern terminal, this version features advanced grid processing, dynamic difficulty scaling, and a cinematic CLI interface.
 
-## 🚀 Sobre el Proyecto
-Este proyecto implementa el motor de juego del Buscaminas en Java, enfocado en la modularidad y la experiencia de usuario en consola.
+## 🚀 Key Features
+- **Sophisticated Game Engine**: Modular grid logic handling recursive cell revelation and mine placement algorithms.
+- **Executive Visuals**: Rich ANSI color palettes and professional ASCII branding provide a premium user experience.
+- **Multi-Level Difficulty**: Customizable grid dimensions and mine density for scalable challenge levels.
+- **Cinematic Feedback**: High-impact visual sequences for victory and loss conditions.
 
-### 🛠️ Tecnologías Utilizadas
-*   **Lenguaje:** Java 21.
-*   **Build Tool:** Maven.
-*   **Interfaz:** Consola con colores ANSI y banners ASCII.
+## 🎨 Interface Showcase
+The system utilizes a refined grid system with clear status indicators:
+- `[?]` (Cian): Hidden Cell.
+- `[F]` (Red): Flagged Mine.
+- `[0-8]` (Dynamic): Proximity count.
+- `[*]` (Yellow): Detonated Mine.
 
----
+## 🛠️ Technical Stack
+- **Language**: Java 21
+- **Build System**: Maven
+- **Paradigm**: Object-Oriented Design (OOD)
+- **Styling**: ANSI Escape Sequences & High-Density ASCII Art
 
-## 📸 Interfaz del Juego (CLI Showcase)
-
-### 1. Inicio y Banner
-```text
-██████╗ ██╗   ██╗███████╗ ██████╗ █████╗ ███╗   ███╗██╗███╗   ██╗ █████╗ ███████╗
-██╔══██╗██║   ██║██╔════╝██╔════╝██╔══██╗████╗ ████║██║████╗  ██║██╔══██╗██╔════╝
-██████╔╝██║   ██║███████╗██║     ███████║██╔████╔██║██║██╔██╗ ██║███████║███████╗
-██╔══██╗██║   ██║╚════██║██║     ██╔══██║██║╚██╔╝██║██║██║╚██╗██║██╔══██║╚════██║
-██████╔╝╚██████╔╝███████║╚██████╗██║  ██║██║ ╚═╝ ██║██║██║ ╚████║██║  ██║███████║
-╚═════╝  ╚═════╝ ╚══════╝ ╚═════╝╚═╝  ╚═╝╚═╝     ╚═╝╚═╝╚═╝  ╚═══╝╚═╝  ╚═╝╚══════╝
-                       M I N E S W E E P E R                                  
-================================================================================
+## 📖 How to Run
+Ensure you have Maven and a Java 21+ JDK installed, then execute:
+```powershell
+mvn clean compile
+mvn exec:java "-Dexec.mainClass=com.utn.buscaminas.Main"
 ```
 
-### 2. Tablero de Juego
-```text
-    0  1  2  3  4  5  6  7  8  9 
- 0 [?] [?] [?] [?] [?] [?] [?] [?] [?] [?] 
- 1 [?] [1] [1] [1] [?] [?] [?] [?] [?] [?] 
- 2 [?] [1] [0] [1] [?] [?] [?] [?] [?] [?] 
- 3 [?] [1] [1] [1] [?] [?] [?] [?] [?] [?] 
-```
-
-### 3. Pantalla de Derrota (Explosión)
-```text
-              _ ._  _ , _ ._             
-            (_ ' ( `  )_  .__)           
-          ( (  (    )   `)  ) _)         
-         (__ (_   (_ . _) _) ,__)        
-             `~~`\ ' . /`~~`             
-                  |   |                  
-                  |   |                  
-                  '-' '-'                
-
-        ¡¡¡ B O O O O O O M !!!          
-       Has tocado una mina. Fin del juego.
-==========================================
-```
-
-### 4. Pantalla de Victoria
-```text
-******************************************
-        ¡CAMPO DESPEJADO CON ÉXITO!       
-******************************************
-   🏆  ¡Eres un experto artificiero!     
-******************************************
-```
-
----
-
-## ⚙️ Cómo Ejecutar
-1. **Compilar:**
-   ```powershell
-   mvn clean compile
-   ```
-2. **Jugar:**
-   ```powershell
-   mvn exec:java "-Dexec.mainClass=com.utn.buscaminas.Main"
-   ```
-
----
-
-*Desarrollado por Martin Lantieri - UTN 2026*
+## 👔 Contact
+Developed by **Martin Lantieri** | *Lantieridev*
+[LinkedIn](https://www.linkedin.com/in/martin-lantieri/) | [GitHub](https://github.com/Lantieridev)
