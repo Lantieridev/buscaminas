@@ -1,80 +1,52 @@
-# Minesweeper - Java Console Game 💣🚩
+# 💣 Minesweeper Pro | Java Logic Engine
 
-> [!NOTE]
-> **Academic Exercise:** This project was developed as an exam simulation for the Backend Programming course at UTN FRC (2026).
+![Java](https://img.shields.io/badge/Java-21-orange?style=for-the-badge&logo=openjdk)
+![Maven](https://img.shields.io/badge/Maven-3.9-blue?style=for-the-badge&logo=apache-maven)
+![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
+![Build](https://img.shields.io/github/actions/workflow/status/Lantieridev/minesweeper-pro/maven-ci.yml?style=for-the-badge)
 
-Welcome to **Minesweeper**! The classic logic game reinvented for the terminal with an aesthetic interface and support for multiple difficulties.
+> [!IMPORTANT]
+> **Performance Optimized:** A modern implementation of the classic Minesweeper logic, featuring an immersive terminal interface, multiple difficulty tiers, and optimized grid traversal.
 
-## 🚀 About the Project
-This project implements the Minesweeper game engine in Java, focusing on modularity and the console user experience.
-
-### 🛠️ Technologies Used
-*   **Language:** Java 21.
-*   **Build Tool:** Maven.
-*   **Interface:** Console with ANSI colors and ASCII banners.
+Welcome to **Minesweeper Pro**, a technical showcase of algorithmic recursion and clean code principles. This project reinvents the classic logic puzzle for the terminal with an executive aesthetic and robust combat logic.
 
 ---
 
-## 📸 Game Interface (CLI Showcase)
+## 🚀 Key Features
 
-### 1. Startup and Banner
-```text
-██████╗ ██╗   ██╗███████╗ ██████╗ █████╗ ███╗   ███╗██╗███╗   ██╗ █████╗ ███████╗
-██╔══██╗██║   ██║██╔════╝██╔════╝██╔══██╗████╗ ████║██║████╗  ██║██╔══██╗██╔════╝
-██████╔╝██║   ██║███████╗██║     ███████║██╔████╔██║██║██╔██╗ ██║███████║███████╗
-██╔══██╗██║   ██║╚════██║██║     ██╔══██║██║╚██╔╝██║██║██║╚██╗██║██╔══██║╚════██║
-██████╔╝╚██████╔╝███████║╚██████╗██║  ██║██║ ╚═╝ ██║██║██║ ╚████║██║  ██║███████║
-╚═════╝  ╚═════╝ ╚══════╝ ╚═════╝╚═╝  ╚═╝╚═╝     ╚═╝╚═╝╚═╝  ╚═══╝╚═╝  ╚═╝╚══════╝
-                       M I N E S W E E P E R                                  
-================================================================================
+*   **⚡ Recursive Reveal:** Implements an optimized flood-fill algorithm for instant zero-tile expansion.
+*   **🎮 Multiple Difficulties:** Supports Easy, Intermediate, and Expert modes with customizable grid sizes and mine density.
+*   **✨ Executive CLI:** A refined terminal interface featuring high-contrast ANSI colors and professional ASCII banners.
+*   **🧪 100% Logic Stability:** Comprehensive unit tests ensuring field generation and win/loss state accuracy.
+
+---
+
+## 🛠️ Tech Stack
+
+*   **Java 21**: Leveraging modern language features for robust state management.
+*   **Maven**: Industry-standard build and dependency management.
+*   **JUnit 5**: Extensive test suite for algorithmic verification.
+*   **GitHub Actions**: Automated CI/CD pipeline.
+
+---
+
+## 📖 How to Run
+
+### 1. Build and Test
+```powershell
+mvn clean install
 ```
 
-### 2. Game Board
-```text
-    0  1  2  3  4  5  6  7  8  9 
-  0 [?] [?] [?] [?] [?] [?] [?] [?] [?] [?] 
-  1 [?] [1] [1] [1] [?] [?] [?] [?] [?] [?] 
-  2 [?] [1] [0] [1] [?] [?] [?] [?] [?] [?] 
-  3 [?] [1] [1] [1] [?] [?] [?] [?] [?] [?] 
-```
-
-### 3. Defeat Screen (Explosion)
-```text
-              _ ._  _ , _ ._             
-            (_ ' ( `  )_  .__)           
-          ( (  (    )   `)  ) _)         
-         (__ (_   (_ . _) _) ,__)        
-             `~~`\ ' . /`~~`             
-                  |   |                  
-                  |   |                  
-                  '-' '-'                
-
-        ¡¡¡ B O O O O O O M !!!          
-       You hit a mine. Game over.
-==========================================
-```
-
-### 4. Victory Screen
-```text
-******************************************
-        FIELD SUCCESSFULLY CLEARED!       
-******************************************
-    🏆  You are an expert sapper!     
-******************************************
+### 2. Run the Game
+```powershell
+mvn exec:java "-Dexec.mainClass=com.utn.buscaminas.Main"
 ```
 
 ---
 
-## ⚙️ How to Run
-1. **Compile:**
-   ```powershell
-   mvn clean compile
-   ```
-2. **Play:**
-   ```powershell
-   mvn exec:java "-Dexec.mainClass=com.utn.buscaminas.Main"
-   ```
+## 📜 Academic Context
+Originally developed as an exam simulation for the Backend Programming curriculum at UTN FRC, this project has been elevated to meet professional portfolio standards through localization and UI/UX polish.
 
 ---
 
-*Developed by Martin Lantieri - UTN 2026*
+*Developed by [Martin Lantieri](https://github.com/Lantieridev) - 2026*
