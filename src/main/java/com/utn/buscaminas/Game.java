@@ -13,6 +13,16 @@ public class Game {
         this.isWon = false;
     }
 
+    /**
+     * Seeded constructor for deterministic tests - see Board(Difficulty, long).
+     */
+    public Game(String playerName, Difficulty difficulty, long seed) {
+        this.playerName = playerName;
+        this.board = new Board(difficulty, seed);
+        this.isGameOver = false;
+        this.isWon = false;
+    }
+
     public boolean revealCell(int r, int c) {
         if (isGameOver) return false;
 

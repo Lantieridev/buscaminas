@@ -8,11 +8,24 @@ public class Board {
     private final Cell[][] grid;
 
     public Board(Difficulty difficulty) {
+        this(difficulty, new Random());
+    }
+
+    /**
+     * Seeded constructor for deterministic tests - lets an E2E test drive a
+     * full game via simulated input against a known, reproducible mine layout
+     * instead of guessing at a real shuffle's outcome.
+     */
+    public Board(Difficulty difficulty, long seed) {
+        this(difficulty, new Random(seed));
+    }
+
+    private Board(Difficulty difficulty, Random random) {
         this.size = difficulty.getSize();
         this.minesCount = difficulty.getMines();
         this.grid = new Cell[size][size];
         initializeGrid();
-        placeMines();
+        placeMines(random);
         calculateAdjacentMines();
     }
 
@@ -24,8 +37,7 @@ public class Board {
         }
     }
 
-    private void placeMines() {
-        Random random = new Random();
+    private void placeMines(Random random) {
         int placedMines = 0;
         while (placedMines < minesCount) {
             int r = random.nextInt(size);

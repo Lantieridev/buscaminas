@@ -36,4 +36,23 @@ public class CellTest {
         cell.setAdjacentMines(5);
         assertEquals(5, cell.getAdjacentMines());
     }
+
+    @Test
+    public void testToColoredString_CoversEveryColorBranch() {
+        Cell hidden = new Cell();
+        assertTrue(hidden.toColoredString().contains("[?]"));
+
+        Cell mine = new Cell();
+        mine.reveal();
+        mine.setMined(true);
+        assertTrue(mine.toColoredString().contains("[*]"));
+
+        for (int count = 0; count <= 5; count++) {
+            Cell cell = new Cell();
+            cell.reveal();
+            cell.setAdjacentMines(count);
+            assertTrue(cell.toColoredString().contains("[" + count + "]"),
+                    "expected the colored string for " + count + " adjacent mines to contain the number");
+        }
+    }
 }

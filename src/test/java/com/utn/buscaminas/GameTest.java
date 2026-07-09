@@ -78,4 +78,27 @@ public class GameTest {
         
         assertFalse(game.revealCell(0, 0));
     }
+
+    @Test
+    public void testGetPlayerName_ReturnsTheNamePassedToConstructor() {
+        Game game = new Game("Ada", Difficulty.EASY, 7L);
+        assertEquals("Ada", game.getPlayerName());
+    }
+
+    @Test
+    public void testRevealCell_OutOfBounds_ReturnsFalseWithoutThrowing() {
+        Game game = new Game("Player", Difficulty.EASY, 7L);
+        assertFalse(game.revealCell(-1, 0));
+        assertFalse(game.revealCell(0, 999));
+    }
+
+    @Test
+    public void testRevealCell_FloodFillAtBoardEdge_DoesNotThrow() {
+        // Seed 7's (0,0) is a zero-adjacent-mines cell right at the board's
+        // corner - its flood fill will ask Board for out-of-bounds neighbors
+        // (row -1, col -1), which must come back null and be skipped, not throw.
+        Game game = new Game("Player", Difficulty.EASY, 7L);
+        assertTrue(game.revealCell(0, 0));
+        assertFalse(game.isGameOver());
+    }
 }

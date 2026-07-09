@@ -35,14 +35,33 @@ public class Cell {
         this.adjacentMines = adjacentMines;
     }
 
+    /**
+     * Plain-text representation, with no ANSI color codes - safe for tests,
+     * logs, or any non-terminal context. Use toColoredString() for the
+     * actual console UI.
+     */
     @Override
     public String toString() {
-        String RESET = "\u001B[0m";
-        String RED = "\u001B[31m";
-        String GREEN = "\u001B[32m";
-        String YELLOW = "\u001B[33m";
-        String BLUE = "\u001B[34m";
-        String CYAN = "\u001B[36m";
+        if (!isRevealed) {
+            return "[?]";
+        }
+        if (isMined) {
+            return "[*]";
+        }
+        return "[" + adjacentMines + "]";
+    }
+
+    /**
+     * Console rendering with ANSI colors - the number's color hints at how
+     * dangerous the cell is (blue=1 through red=3, yellow=4+).
+     */
+    public String toColoredString() {
+        String RESET = "[0m";
+        String RED = "[31m";
+        String GREEN = "[32m";
+        String YELLOW = "[33m";
+        String BLUE = "[34m";
+        String CYAN = "[36m";
 
         if (!isRevealed) {
             return CYAN + "[?]" + RESET;
@@ -50,7 +69,7 @@ public class Cell {
         if (isMined) {
             return RED + "[*]" + RESET;
         }
-        
+
         String color = switch (adjacentMines) {
             case 1 -> BLUE;
             case 2 -> GREEN;
@@ -58,7 +77,7 @@ public class Cell {
             case 4 -> YELLOW;
             default -> RESET;
         };
-        
+
         return color + "[" + adjacentMines + "]" + RESET;
     }
 }

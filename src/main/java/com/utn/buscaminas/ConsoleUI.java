@@ -7,7 +7,18 @@ import java.util.Map;
 public class ConsoleUI {
     private final Scanner scanner;
     private final Map<String, Integer> playerWins;
-    
+
+    /**
+     * Optional fixed seed for the board's mine layout. Null in normal play
+     * (real randomness); set by tests to drive a deterministic, reproducible
+     * game end-to-end through this same class instead of mocking it away.
+     */
+    private Long seed;
+
+    public void setSeed(Long seed) {
+        this.seed = seed;
+    }
+
     // ANSI Colors
     private static final String RESET = "\u001B[0m";
     private static final String RED = "\u001B[31m";
@@ -56,7 +67,7 @@ public class ConsoleUI {
             System.out.println("Opcion no valida, usando Facil por defecto.");
         }
 
-        Game game = new Game(playerName, difficulty);
+        Game game = (seed != null) ? new Game(playerName, difficulty, seed) : new Game(playerName, difficulty);
 
         while (!game.isGameOver()) {
             displayBoard(game.getBoard());
@@ -103,7 +114,7 @@ public class ConsoleUI {
         for (int i = 0; i < size; i++) {
             System.out.printf("%2d ", i);
             for (int j = 0; j < size; j++) {
-                System.out.print(board.getCell(i, j).toString() + " ");
+                System.out.print(board.getCell(i, j).toColoredString() + " ");
             }
             System.out.println();
         }
